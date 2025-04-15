@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<div class="container slayer-section">
+    <h2 class="slayer-heading">All Posts</h2>
+    <p class="slayer-subheading">Browse through the list of available pages.</p>
+
+    {% for pages in pages %}
+        <div class="slayer-card">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-8">
+                    <h4>{{ pages.title }}</h4>
+                    <p><b>{{ pages.content|striptags|truncatechars:300 }}...</b></p>
+                    <br>
+                    <a href="{% url 'view_page' pages.pk %}" class="btn-slayerss">View More</a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="{{ pages.img_link|default:'/static/images/placeholder.png' }}" alt="Page Image" class="card-image">
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="no-pages">No pages available.</div>
+    {% endfor %}
+</div>
+
+{% endblock %}

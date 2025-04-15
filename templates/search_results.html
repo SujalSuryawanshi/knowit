@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+    <!-- Top Button -->
+    <div class="flex justify-center mb-4">
+        <button class="bg-red-500 text-white px-4 py-2 rounded-full"><a href="/">Back to Home</a></button>
+    </div>
+
+    <!-- Main Heading -->
+    <h1 class="text-4xl font-bold text-center mb-8">
+        Search <span class="text-red-500">Results</span>
+    </h1>
+
+    <!-- Search Results Section -->
+    <div class="container mx-auto px-4">
+        {% for page in pages %}
+        <div class="slayer-card">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-8">
+                    <h4>{{ page.title }}</h4>
+                    <p><b>{{ page.content|striptags|truncatechars:300 }}...</b></p>
+                    <br>
+                    <a href="{% url 'view_page' page.pk %}" class="btn-slayerss">View More</a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="{{ page.img_link|default:'/static/images/placeholder.png' }}" alt="Page Image" class="card-image">
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <h1 class="text-4xl font-bold text-center mb-8">
+            No <span class="text-red-500">Results</span>
+        </h1>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

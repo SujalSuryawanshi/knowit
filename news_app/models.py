@@ -18,3 +18,15 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=255)
+    img=models.ImageField(upload_to='posts/', null=True, blank=True)
+    img_link=models.TextField(null=True, blank=True)
+    affilate_link=models.TextField(null=True, blank=True)
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

@@ -10,12 +10,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <header>
-        <div class="logo">Slayer's Field</div>
+        <div class="logo"><a href='/'>Slayer's Field</a></div>
         <nav>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="#">Store</a></li>
-                <li><a href="{% url "contact" %}">Contact</a></li>
+                <li><a href="{% url "page_list" %}">Store</a></li>
+                <li><a href="{% url "contact" %}">Community</a></li>
+                <div class="search-container">
+                    <form role="search" method=GET action="{% url 'search' %}">
+                        {% csrf_token %}
+                        <input class="search-box" type="text" id="search-form" placeholder="  Search for anything!" value="" name="query">
+                    </form>
+                </div>
 
             </ul>
             <div class="hamburger">
@@ -36,13 +42,13 @@
 <footer class="footer">
     <div class="footer-content">
         <div class="social-icons">
-            <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://discord.gg/dUmggT9C" target="_blank"><i class="fab fa-discord"></i></a>
             <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
             <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+            <a href="https://t.me/williamthomasflasser" target="_blank"><i class="fab fa-telegram"></i></a>
         </div>
         <p>© 2025 <span class="brand">Slayer's</span> Server . All rights reserved.</p>
-        <p>Made by <span class="credit">Slaver</span> on <a href="#">builtbybit.com</a> ❤️</p>
+        <p>Made by <span class="credit">Slayer</span>  ❤️</p>
     </div>
 </footer>
 <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT.js" crossorigin="anonymous"></script>

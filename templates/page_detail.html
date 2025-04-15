@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<div class="container mt-5">
+    <div class="mt-3">
+        {{ page.content|safe }}
+    </div>
+</div>
+<div class="detail_body">
+    <a href="{{ page.affilate_link }}" target="_blank" class="btn-slayerss">Buy Now</a>
+    <a href="javascript:history.back()" class="btn-slayerss">Back</a>
+</div>
+{% endblock %}
